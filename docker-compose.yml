@@ -1,12 +1,12 @@
 version: '2'
 services:
   slaughterhouse:
-    image: tayworm/slaughterhouse:1
+    privileged: true
+    image: drpebcak/slaughterhouse:latest
     stdin_open: true
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
     tty: true
     labels:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
-    privileged: true
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock

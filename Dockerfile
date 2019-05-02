@@ -1,8 +1,7 @@
-FROM alpine:3.8
+FROM alpine:3.9
 
-ADD entrypoint.sh /usr/bin/entrypoint.sh
+RUN apk add --no-cache curl
 
-RUN apk add --no-cache docker curl && \
-chmod +x /usr/bin/entrypoint.sh
+COPY entrypoint.sh /usr/bin/entrypoint.sh
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
